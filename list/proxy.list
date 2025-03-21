@@ -6,6 +6,6 @@ DOMAIN,download.proxmox.com
 DOMAIN,registry.npmjs.org
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,githubusercontent.com
-
+DOMAIN-SUFFIX,google.com
 # 内网机器
 SRC-IP-CIDR,192.168.1.136/32
