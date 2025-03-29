@@ -15,7 +15,7 @@ names=()
 urls=()
 
 # 逐行读取文件内容
-echo "list config file: ${input_file}"
+#echo "list config file: ${input_file}"
 while IFS=' ' read -r name url; do
     # 去除可能的空格和空行
     if [[ -n "$name" && -n "$url" ]]; then
@@ -46,7 +46,9 @@ for i in "${!names[@]}"; do
     fi
 done
 
-echo "git ..."
+echo "Download completed."
+
+echo "git action..."
 
 git_repo_dir=$(git rev-parse --show-toplevel 2>/dev/null)  # 获取Git仓库根目录
 # --- 2. 检查是否在Git仓库中 ---
@@ -72,5 +74,4 @@ else
 fi
 
 echo "🎉 操作完成！"
-echo "Download completed."
 
