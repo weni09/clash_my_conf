@@ -61,7 +61,7 @@ if git diff --quiet --exit-code; then
 else
     # 添加变更并提交
     git add "${CURRENT_PATH}"/*
-    git commit -m "自动更新脚本: $(date '+%Y-%m-%d %H:%M:%S')"
+    git commit -m "自动更新脚本: $(date '+%F %T')"
     if [ $? -eq 0 ]; then
         echo "✅ Git提交成功！"
         # 可选：自动推送到远程仓库
