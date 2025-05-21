@@ -45,7 +45,7 @@ proxy-groups:
   - {name: 🎵 Spotify,!!merge <<: *pr}
   - {name: 👌 虚拟币,!!merge <<: *pr}
   - {name: ⏱ 检测,!!merge <<: *pr}
-  - {name: ✈ 国外,!!merge <<: *pr}
+  - {name: ✈️ 国外,!!merge <<: *pr}
   - {name: 🐼 国内,!!merge <<: *pr}
   - {name: 🐂 所有-手动, type: select, include-all: true}
   - {name: 🐳 所有-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "^((?!(国内)).)*$"}
@@ -84,12 +84,12 @@ rules:
   - RULE-SET,a24,🎬 HBO MAX
   - RULE-SET,a25,🎵 Spotify
   - RULE-SET,a26,👌 虚拟币
-  - RULE-SET,a27,👌 虚拟币
+  - RULE-SET,a27,🐼 国内
   - RULE-SET,a28,👌 虚拟币
   - RULE-SET,a29,⏱ 检测
-  - RULE-SET,a30,✈ 国外
-  - RULE-SET,a31,✈ 国外
-  - RULE-SET,a32,✈ 国外
+  - RULE-SET,a30,✈️ 国外
+  - RULE-SET,a31,✈️ 国外
+  - RULE-SET,a32,✈️ 国外
   - RULE-SET,a33,🐼 国内
   - MATCH,🐼 国内
 rule-anchor:
@@ -125,10 +125,11 @@ rule-providers:
   a24: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/HBO.list"}
   a25: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Spotify.list"}
   a26: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/OKX.list"}
-  a27: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/bybit.list"}
+  a27: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Direct.list"}
   a28: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/xnb.list"}
   a29: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Check.list"}
   a30: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Proxy.list"}
   a31: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Global.list"}
   a32: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/MyProxy.list"}
   a33: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/PT.list"}
+
