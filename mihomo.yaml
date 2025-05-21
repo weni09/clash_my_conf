@@ -1,0 +1,134 @@
+global-ua: clash
+
+# 全局配置
+ipv6: true
+allow-lan: true
+unified-delay: true
+tcp-concurrent: true
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+
+# 策略组选择和fakeip缓存
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 锚点
+pr: &pr {type: select, proxies: [👿 鬼节点,🐂 所有-手动,🐳 所有-自动,🦁 香港-自动,🏝️ 台湾-自动,🎌 日本-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🌀 其他-自动, DIRECT,REJECT]}
+# 策略组
+proxy-groups:
+  - {name: 🤖⚡ AI,!!merge <<: *pr}
+  - {name: 🔵🧠 Meta AI,!!merge <<: *pr}
+  - {name: 🔍🧩 Perplexity,!!merge <<: *pr}
+  - {name: 🐙💻 GitHub,!!merge <<: *pr}
+  - {name: 🪂 TikTok,!!merge <<: *pr}
+  - {name: 🙋 Telegram,!!merge <<: *pr}
+  - {name: 🕊️ Twitter(X),!!merge <<: *pr}
+  - {name: 🗣️ Facebook,!!merge <<: *pr}
+  - {name: 💁 WhatApp,!!merge <<: *pr}
+  - {name: 🌳 Amazon,!!merge <<: *pr}
+  - {name: 🍎 Apple,!!merge <<: *pr}
+  - {name: Ⓜ️ Microsoft,!!merge <<: *pr}
+  - {name: 🎮 Steam,!!merge <<: *pr}
+  - {name: 🕹️ Game,!!merge <<: *pr}
+  - {name: 🎞️ YouTube,!!merge <<: *pr}
+  - {name: 📺 Disney,!!merge <<: *pr}
+  - {name: 🎥 Netflix,!!merge <<: *pr}
+  - {name: 🎬 HBO MAX,!!merge <<: *pr}
+  - {name: 🎵 Spotify,!!merge <<: *pr}
+  - {name: 👌 虚拟币,!!merge <<: *pr}
+  - {name: ⏱ 检测,!!merge <<: *pr}
+  - {name: ✈ 国外,!!merge <<: *pr}
+  - {name: 🐼 国内,!!merge <<: *pr}
+  - {name: 🐂 所有-手动, type: select, include-all: true}
+  - {name: 🐳 所有-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "^((?!(国内)).)*$"}
+  - {name: 🦁 香港-自动, type: select, include-all: true, filter: "(?i)广港|香港|HK|Hong Kong|🇭🇰|HongKong"}
+  - {name: 🏝️ 台湾-自动, type: select, include-all: true, filter: "(?i)广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwa"}
+  - {name: 🎌 日本-自动, type: select, include-all: true, filter: "(?i)广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan"}
+  - {name: 🌿 新加坡-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)广新|新加坡|SG|坡|狮城|🇸🇬|Singapore"}
+  - {name: 💄 韩国-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea" }
+  - {name: 🦅 美国-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States"}
+  - {name: 🌀 其他-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)波|柬|尼|也|克|比|尔|立|冰|秘|耳|利|埃|希|孟|芬|愛|澳|英|德|南|意|法|拿|墨|印|越|俄|瑞|智|荷|比|巴|沙|班|泰|德|烏|以|Australia|Konghwaguk"}
+  - {name: 👿 鬼节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "Ghost"}
+rules:
+  - RULE-SET,a1,🤖⚡ AI
+  - RULE-SET,a2,🔵🧠 Meta AI
+  - RULE-SET,a3,🔍🧩 Perplexity
+  - RULE-SET,a4,🐙💻 GitHub
+  - RULE-SET,a5,🪂 TikTok
+  - RULE-SET,a6,🙋 Telegram
+  - RULE-SET,a7,🕊️ Twitter(X)
+  - RULE-SET,a8,🗣️ Facebook
+  - RULE-SET,a9,💁 WhatApp
+  - RULE-SET,a10,🌳 Amazon
+  - RULE-SET,a11,🍎 Apple
+  - RULE-SET,a12,Ⓜ️ Microsoft
+  - RULE-SET,a13,🎮 Steam
+  - RULE-SET,a14,🕹️ Game
+  - RULE-SET,a15,🕹️ Game
+  - RULE-SET,a16,🕹️ Game
+  - RULE-SET,a17,🕹️ Game
+  - RULE-SET,a18,🕹️ Game
+  - RULE-SET,a19,🕹️ Game
+  - RULE-SET,a20,🎞️ YouTube
+  - RULE-SET,a21,🎞️ YouTube
+  - RULE-SET,a22,📺 Disney
+  - RULE-SET,a23,🎥 Netflix
+  - RULE-SET,a24,🎬 HBO MAX
+  - RULE-SET,a25,🎵 Spotify
+  - RULE-SET,a26,👌 虚拟币
+  - RULE-SET,a27,👌 虚拟币
+  - RULE-SET,a28,👌 虚拟币
+  - RULE-SET,a29,⏱ 检测
+  - RULE-SET,a30,✈ 国外
+  - RULE-SET,a31,✈ 国外
+  - RULE-SET,a32,✈ 国外
+  - RULE-SET,a33,🐼 国内
+  - MATCH,🐼 国内
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  qcy: &qcy {type: http, interval: 86400, behavior: domain, format: text}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+
+rule-providers:
+  a1: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/AI.list"}
+  a2: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/MetaAi.list"}
+  a3: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Perplexity.list"}
+  a4: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/GitHub.list"}
+  a5: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/TikTok.list"}
+  a6: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Telegram.list"}
+  a7: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Twitter.list"}
+  a8: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Facebook.list"}
+  a9: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Whatsapp.list"}
+  a10: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Amazon.list"}
+  a11: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Apple.list"}
+  a12: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Microsoft.list"}
+  a13: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Steam.list"}
+  a14: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Epic.list"}
+  a15: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/EA.list"}
+  a16: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Blizzard.list"}
+  a17: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/UBI.list"}
+  a18: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Sony.list"}
+  a19: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Nintendo.list"}
+  a20: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/YouTube1.list"}
+  a21: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/YouTube2.list"}
+  a22: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Disney.list"}
+  a23: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list//Netflix.list"}
+  a24: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/HBO.list"}
+  a25: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Spotify.list"}
+  a26: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/OKX.list"}
+  a27: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/bybit.list"}
+  a28: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/xnb.list"}
+  a29: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Check.list"}
+  a30: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Proxy.list"}
+  a31: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Global.list"}
+  a32: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/MyProxy.list"}
+  a33: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/PT.list"}
