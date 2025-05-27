@@ -20,3 +20,5 @@ IP-CIDR,2002::/16,no-resolve
 IP-CIDR,fc00::/7,no-resolve
 IP-CIDR,fe80::/10,no-resolve
 IP-CIDR,ff00::/8,no-resolve
+DOMAIN-SUFFIX,mozilla.com
+DOMAIN-SUFFIX,mozilla.org
