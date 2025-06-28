@@ -1,9 +1,41 @@
 # IP段匹配
-IP-CIDR,142.171.133.131/32,no-resolve
-IP-CIDR,103.115.43.2/32,no-resolve
+IP-CIDR,142.171.133.0/24,no-resolve
+IP-CIDR,103.115.43.0/24,no-resolve
+
 IP-CIDR,104.236.69.0/24,no-resolve
 IP-CIDR,95.161.76.0/24,no-resolve
 IP-CIDR,142.251.215.0/24,no-resolve
+IP-CIDR,104.36.21.0/24,no-resolve
+IP-CIDR,136.175.8.0/24,no-resolve
+IP-CIDR,178.67.83.0/24,no-resolve
+IP-CIDR,95.158.236.0/24,no-resolve
+IP-CIDR,93.100.194.0/24,no-resolve
+IP-CIDR,95.68.133.0/24,no-resolve
+IP-CIDR,59.13.6.0/24,no-resolve
+IP-CIDR,220.81.250.0/24,no-resolve
+IP-CIDR,211.105.176.0/24,no-resolve
+IP-CIDR,95.24.81.0/24,no-resolve
+IP-CIDR,187.11.32.0/24,no-resolve
+IP-CIDR,84.15.222.0/24,no-resolve
+IP-CIDR,79.117.224.0/24,no-resolve
+IP-CIDR,85.17.12.0/24,no-resolve
+IP-CIDR,31.162.103.0/24,no-resolve
+IP-CIDR,37.204.213.0/24,no-resolve
+IP-CIDR,176.213.78.0/24,no-resolve
+IP-CIDR,65.108.143.0/24,no-resolve
+IP-CIDR,66.51.170.0/24,no-resolve
+IP-CIDR,45.145.43.0/24,no-resolve
+IP-CIDR,69.16.230.0/24,no-resolve
+IP-CIDR,185.219.84.0/24,no-resolve
+IP-CIDR,98.128.229.0/24,no-resolve
+IP-CIDR,95.78.69.0/24,no-resolve
+IP-CIDR,212.60.5.0/24,no-resolve
+IP-CIDR,176.32.38.0/24,no-resolve
+IP-CIDR,199.59.243.0/24,no-resolve
+IP-CIDR,151.243.22.0/24,no-resolve
+IP-CIDR,188.191.197.0/24,no-resolve
+IP-CIDR,31.13.75.0/24,no-resolve 
+
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
