@@ -31,3 +31,5 @@ IP-CIDR,63.251.124.0/24
 # 火孤插件 
 DOMAIN,addons.mozilla.org
 
+#
+DOMAIN-SUFFIX,fanart.tv
