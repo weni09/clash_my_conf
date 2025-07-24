@@ -22,6 +22,7 @@ profile:
 
 # 锚点
 pr: &pr {type: select, proxies: [👿 鬼节点,🐂 所有-手动,🐳 所有-自动,🦁 香港-自动,🏝️ 台湾-自动,🎌 日本-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🌀 其他-自动, DIRECT,REJECT]}
+pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👿 鬼节点,🐂 所有-手动,🐳 所有-自动,🦁 香港-自动,🏝️ 台湾-自动,🎌 日本-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🌀 其他-自动]}
 # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
@@ -44,9 +45,9 @@ proxy-groups:
   - {name: 🎬 HBO MAX,!!merge <<: *pr}
   - {name: 🎵 Spotify,!!merge <<: *pr}
   - {name: 👌 虚拟币,!!merge <<: *pr}
-  - {name: ⏱ 检测,!!merge <<: *pr}
+  - {name: ⏱ 检测,!!merge <<: *pr1}
   - {name: ✈️ 国外,!!merge <<: *pr}
-  - {name: 🐼 国内,!!merge <<: *pr}
+  - {name: 🐼 国内,!!merge <<: *pr1}
   - {name: 🐂 所有-手动, type: select, include-all: true}
   - {name: 🐳 所有-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "^((?!(国内)).)*$"}
   - {name: 🦁 香港-自动, type: select, include-all: true, filter: "(?i)广港|香港|HK|Hong Kong|🇭🇰|HongKong"}
