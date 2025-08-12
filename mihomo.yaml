@@ -137,4 +137,3 @@ rule-providers:
   a33: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/PT.list"}
   a34: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Google.list"}
 
-
