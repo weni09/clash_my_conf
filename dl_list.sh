@@ -29,6 +29,7 @@ done < "${input_file}"
 #echo "Names: ${names[@]}"
 #echo "URLs: ${urls[@]}"
 
+
 if [ ! -d "${TMP_PATH}" ]; then
    mkdir -p ${TMP_PATH}
 fi
@@ -40,22 +41,26 @@ for i in "${!names[@]}"; do
     curl -L --connect-timeout 10 --retry 3 -o "${TMP_PATH}/${names[$i]}" -s "${urls[$i]}"
     if [ $? -eq 0 ]; then
         echo "✅ Successfully downloaded ${names[$i]}"
-	mv "${TMP_PATH}/${names[$i]}" "${LIST_PATH}/${names[$i]}"
-    # 过滤 Mihomo 不兼容规则（如 USER-AGENT、IN-NAME 等）
-    echo "开始过滤 Mihomo 不兼容规则..."
-    # 删除 USER-AGENT 规则行
-    if grep -q "^USER-AGENT" "${LIST_PATH}/${names[$i]}"; then
-        echo "⚠️ 发现 USER-AGENT 规则，正在删除..."
-        grep -v "^USER-AGENT" "${LIST_PATH}/${names[$i]}" > "${TMP_PATH}/${names[$i]}.tmp" && mv "${TMP_PATH}/${names[$i]}.tmp" "${LIST_PATH}/${names[$i]}"
-    fi
-    # 删除其他不兼容规则类型（IN-NAME、IN-TYPE、IN-USER、PROTOCOL、SCRIPT 等）
-    for bad in "IN-NAME" "IN-TYPE" "IN-USER" "PROTOCOL" "SCRIPT"; do
-        if grep -q "^$bad" "${LIST_PATH}/${names[$i]}"; then
-            echo "⚠️ 发现 $bad 规则，正在删除..."
-            grep -v "^$bad" "${LIST_PATH}/${names[$i]}" > "${TMP_PATH}/${names[$i]}.tmp" && mv "${TMP_PATH}/${names[$i]}.tmp" "${LIST_PATH}/${names[$i]}"
+        mv "${TMP_PATH}/${names[$i]}" "${LIST_PATH}/${names[$i]}"
+        # 过滤 Mihomo 不兼容规则（如 USER-AGENT、IN-NAME 等）
+        echo "开始过滤 Mihomo 不兼容规则..."
+        # 删除 USER-AGENT 规则行
+        if grep -q "^USER-AGENT" "${LIST_PATH}/${names[$i]}"; then
+            echo "⚠️ 发现 USER-AGENT 规则，正在删除..."
+            grep -v "^USER-AGENT" "${LIST_PATH}/${names[$i]}" > "${TMP_PATH}/${names[$i]}.tmp" && mv "${TMP_PATH}/${names[$i]}.tmp" "${LIST_PATH}/${names[$i]}"
         fi
-    done
-    echo "✅ 过滤完成"
+        # 删除其他不兼容规则类型（IN-NAME、IN-TYPE、IN-USER、PROTOCOL、SCRIPT 等）
+        for bad in "IN-NAME" "IN-TYPE" "IN-USER" "PROTOCOL" "SCRIPT"; do
+            if grep -q "^$bad" "${LIST_PATH}/${names[$i]}"; then
+                echo "⚠️ 发现 $bad 规则，正在删除..."
+                grep -v "^$bad" "${LIST_PATH}/${names[$i]}" > "${TMP_PATH}/${names[$i]}.tmp" && mv "${TMP_PATH}/${names[$i]}.tmp" "${LIST_PATH}/${names[$i]}"
+            fi
+        done
+        echo "✅ 过滤完成"
+    else
+        echo "❌ Failed to download ${names[$i]} (check URL or network)"
+    fi
+done
 
 echo "Download completed."
 
@@ -85,4 +90,3 @@ else
 fi
 
 echo "🎉 操作完成！"
-
