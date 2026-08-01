@@ -699,9 +699,6 @@ IP-CIDR,173.194.0.0/16,no-resolve
 IP-CIDR,216.73.80.0/20,no-resolve
 IP-CIDR,74.125.0.0/16,no-resolve
 IP-CIDR6,2620:120:e000::/40,no-resolve
-USER-AGENT,%E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*
-USER-AGENT,*com.google.Drive*
-USER-AGENT,Google.Drive*
 PROCESS-NAME,com.android.vending
 PROCESS-NAME,com.google.android.gms
 PROCESS-NAME,com.google.android.gsf
@@ -714,9 +711,6 @@ DOMAIN-SUFFIX,docs.google.com
 DOMAIN-SUFFIX,drive.google.com
 DOMAIN-SUFFIX,googledrive.com
 DOMAIN-SUFFIX,googleusercontent.com
-USER-AGENT,%E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*
-USER-AGENT,*com.google.Drive*
-USER-AGENT,Google.Drive*
 # GoogleEarth
 DOMAIN-SUFFIX,earth-pa.clients6.google.com
 DOMAIN-SUFFIX,earth.google.com
