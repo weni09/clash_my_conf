@@ -21,8 +21,9 @@ profile:
   store-fake-ip: true
 
 # 锚点
-pr: &pr {type: fallback, proxies: [👵 大妈节点,👿 鬼节点,🐳 所有-自动,🐂 所有-手动,DIRECT]}
+pr: &pr {type: select, proxies: [👵 大妈节点,👿 鬼节点,🐳 所有-自动,🐂 所有-手动,DIRECT]}
 pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👵 大妈节点,👿 鬼节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
+pr2: &pr2 {type: fallback, proxies:[🦁 香港-自动, 👵 大妈节点, DIRECT]}
 # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
@@ -48,6 +49,7 @@ proxy-groups:
   - {name: 👌 虚拟币,!!merge <<: *pr}
   - {name: ⏱ 检测,!!merge <<: *pr1}
   - {name: ✈️ 国外,!!merge <<: *pr}
+  - {name: 🧭 DNS,!!merge <<: *pr2}
   - {name: 🐼 国内,!!merge <<: *pr1}
   - {name: 🐂 所有-手动, type: select, include-all: true}
   - {name: 🐳 所有-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "^((?!(国内|Ghost|Dmit)).)*$"}
