@@ -13,8 +13,9 @@
   可用辅助函数：proxiesYaml / proxyYaml / toYaml / indent / names / quote
 */ -}}
 {{- /* 以下三个变量只存"字段内容"，不含外层花括号，由使用处补 { } */ -}}
-{{- $pr := "type: fallback, proxies: [👵 大妈节点,🐂 所有-手动,🐳 所有-自动,DIRECT]" -}}
+{{- $pr := "type: select, proxies: [👵 大妈节点,🐂 所有-手动,🐳 所有-自动,DIRECT]" -}}
 {{- $pr1 := "type: select, proxies: [DIRECT,REJECT,👵 大妈节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]" -}}
+{{- $pr2 := "type: fallback, proxies: [🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动, 👵 大妈节点, DIRECT]" -}}
 {{- $class := "type: http, interval: 86400, behavior: classical, format: text" -}}
 {{- $base := "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list" -}}
 global-ua: clash
@@ -68,6 +69,7 @@ proxy-groups:
   - {name: 👌 虚拟币, {{ $pr }} }
   - {name: ⏱ 检测, {{ $pr1 }} }
   - {name: ✈️ 国外, {{ $pr }} }
+  - {name: 🧭 DNS, {{ $pr2 }} }
   - {name: 🐼 国内, {{ $pr1 }} }
   - {name: 🐂 所有-手动, type: select, include-all: true}
   - {name: 🐳 所有-自动, type: url-test, lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "^((?!(国内|Ghost|Dmit)).)*$"}
@@ -81,6 +83,7 @@ proxy-groups:
   - {name: 👵 大妈节点, type: url-test, lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Dmit"}
 
 rules:
+  - RULE-SET,aa,🧭 DNS
   - RULE-SET,a1,🤖⚡ AI
   - RULE-SET,a2,🔵🧠 Meta AI
   - RULE-SET,a3,🔍🧩 Perplexity
@@ -118,6 +121,7 @@ rules:
   - MATCH,🐼 国内
 
 rule-providers:
+  aa: { {{ $class }}, url: "{{ $base }}/DNS.list"}
   a1: { {{ $class }}, url: "{{ $base }}/AI.list"}
   a2: { {{ $class }}, url: "{{ $base }}/MetaAi.list"}
   a3: { {{ $class }}, url: "{{ $base }}/Perplexity.list"}

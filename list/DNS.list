@@ -1,34 +1,157 @@
-# Cloudflare DNS
-IP-CIDR,1.1.1.1/32
-IP-CIDR,1.0.0.1/32
+# NAME: DNS (Foreign only)
+# 用途: 将国外公共 DNS / DoH / DoT 走 🧭 DNS 策略组
+# 说明: 不含国内 DNS（阿里/腾讯/114 等），IP 规则带 no-resolve 避免二次解析
+
+# ========== Cloudflare ==========
+IP-CIDR,1.1.1.1/32,no-resolve
+IP-CIDR,1.0.0.1/32,no-resolve
+IP-CIDR,1.1.1.2/31,no-resolve
+IP-CIDR,1.0.0.2/31,no-resolve
+IP-CIDR,1.1.1.3/32,no-resolve
+IP-CIDR,1.0.0.3/32,no-resolve
+DOMAIN,one.one.one.one
+DOMAIN,1dot1dot1dot1.cloudflare-dns.com
+DOMAIN,cloudflare-dns.com
+DOMAIN,chrome.cloudflare-dns.com
+DOMAIN,mozilla.cloudflare-dns.com
+DOMAIN,opera.cloudflare-dns.com
+DOMAIN,family.cloudflare-dns.com
+DOMAIN,security.cloudflare-dns.com
+DOMAIN,dns.cloudflare.com
 DOMAIN-SUFFIX,cloudflare-dns.com
 
-# Google DNS
-IP-CIDR,8.8.8.8/32
-IP-CIDR,8.8.4.4/32
+# ========== Google ==========
+IP-CIDR,8.8.8.8/32,no-resolve
+IP-CIDR,8.8.4.4/32,no-resolve
+IP-CIDR6,2001:4860:4860::8888/128,no-resolve
+IP-CIDR6,2001:4860:4860::8844/128,no-resolve
 DOMAIN,dns.google
+DOMAIN,dns.google.com
+DOMAIN,8888.google
 
-# Quad9 DNS
-IP-CIDR,9.9.9.9/32
-IP-CIDR,149.112.112.112/32
+# ========== Quad9 ==========
+IP-CIDR,9.9.9.9/32,no-resolve
+IP-CIDR,9.9.9.10/32,no-resolve
+IP-CIDR,9.9.9.11/32,no-resolve
+IP-CIDR,149.112.112.112/32,no-resolve
+IP-CIDR,149.112.112.10/32,no-resolve
+IP-CIDR,149.112.112.11/32,no-resolve
 DOMAIN,dns.quad9.net
+DOMAIN,dns9.quad9.net
+DOMAIN,dns10.quad9.net
+DOMAIN,dns11.quad9.net
+DOMAIN-SUFFIX,quad9.net
 
-# OpenDNS (Cisco)
-IP-CIDR,208.67.222.222/32
-IP-CIDR,208.67.220.220/32
+# ========== OpenDNS / Cisco Umbrella ==========
+IP-CIDR,208.67.222.222/32,no-resolve
+IP-CIDR,208.67.220.220/32,no-resolve
+IP-CIDR,208.67.222.220/32,no-resolve
+IP-CIDR,208.67.220.222/32,no-resolve
 DOMAIN,doh.opendns.com
+DOMAIN,doh.familyshield.opendns.com
+DOMAIN,dns.umbrella.com
+DOMAIN-SUFFIX,opendns.com
+DOMAIN-SUFFIX,umbrella.com
 
-# AdGuard DNS
-IP-CIDR,94.140.14.14/32
-IP-CIDR,94.140.15.15/32
+# ========== AdGuard (国外) ==========
+IP-CIDR,94.140.14.14/32,no-resolve
+IP-CIDR,94.140.15.15/32,no-resolve
+IP-CIDR,94.140.14.15/32,no-resolve
+IP-CIDR,94.140.15.16/32,no-resolve
+IP-CIDR,176.103.130.130/32,no-resolve
+IP-CIDR,176.103.130.131/32,no-resolve
+DOMAIN,dns.adguard.com
 DOMAIN,dns.adguard-dns.com
+DOMAIN,dns-family.adguard.com
+DOMAIN,dns-unfiltered.adguard.com
+DOMAIN,unfiltered.adguard-dns.com
+DOMAIN-SUFFIX,adguard-dns.com
+DOMAIN-SUFFIX,adguard.com
 
-# NextDNS
-IP-CIDR,45.90.28.0/24
-IP-CIDR,45.90.30.0/24
+# ========== NextDNS ==========
+IP-CIDR,45.90.28.0/24,no-resolve
+IP-CIDR,45.90.30.0/24,no-resolve
+DOMAIN,dns.nextdns.io
 DOMAIN-SUFFIX,nextdns.io
 
-# Control D
-IP-CIDR,76.76.2.0/24
-IP-CIDR,76.76.10.0/24
+# ========== Control D ==========
+IP-CIDR,76.76.2.0/24,no-resolve
+IP-CIDR,76.76.10.0/24,no-resolve
 DOMAIN-SUFFIX,controld.com
+
+# ========== Mullvad ==========
+DOMAIN,doh.mullvad.net
+DOMAIN-SUFFIX,mullvad.net
+
+# ========== DNS.SB / DNSPod 海外 ==========
+DOMAIN,dns.sb
+DOMAIN,doh.sb
+DOMAIN,doh.dns.sb
+DOMAIN,dot.sb
+DOMAIN,hk-hkg.doh.sb
+DOMAIN-SUFFIX,dns.sb
+DOMAIN-SUFFIX,doh.sb
+
+# ========== CleanBrowsing ==========
+DOMAIN,doh.cleanbrowsing.org
+DOMAIN,security-filter-dns.cleanbrowsing.org
+DOMAIN-SUFFIX,cleanbrowsing.org
+
+# ========== BlahDNS ==========
+DOMAIN,doh-de.blahdns.com
+DOMAIN,doh-fi.blahdns.com
+DOMAIN,doh-jp.blahdns.com
+DOMAIN-SUFFIX,blahdns.com
+
+# ========== pi-dns ==========
+DOMAIN,doh.centraleu.pi-dns.com
+DOMAIN,doh.northeu.pi-dns.com
+DOMAIN,doh.eastus.pi-dns.com
+DOMAIN,doh.westus.pi-dns.com
+DOMAIN-SUFFIX,pi-dns.com
+
+# ========== Tiarap / LibreDNS / 其他海外 DoH ==========
+DOMAIN,doh.tiar.app
+DOMAIN,doh.tiarap.org
+DOMAIN,jp.tiar.app
+DOMAIN,jp.tiarap.org
+DOMAIN,doh.libredns.gr
+DOMAIN,doh.ffmuc.net
+DOMAIN,doh.crypto.sx
+DOMAIN,doh.powerdns.com
+DOMAIN,doh.powerdns.org
+DOMAIN,doh.securedns.eu
+DOMAIN,doh.seby.io
+DOMAIN,doh.li
+DOMAIN,doh.42l.fr
+DOMAIN,doh.dnslify.com
+DOMAIN,doh.armadillodns.net
+DOMAIN,dohdot.coxlab.net
+DOMAIN,odvr.nic.cz
+DOMAIN,ordns.he.net
+DOMAIN,rdns.faelix.net
+DOMAIN,applied-privacy.net
+DOMAIN,dns.aa.net.uk
+DOMAIN,dns.hostux.net
+DOMAIN,dns.flatuslifir.is
+DOMAIN,dns.containerpi.com
+DOMAIN,dns.dnsoverhttps.net
+DOMAIN,dns.dns-over-https.com
+DOMAIN,dns.aaflalo.me
+DOMAIN,dns-nyc.aaflalo.me
+DOMAIN,dns-tls.qis.io
+DOMAIN,doh.qis.io
+DOMAIN,family.canadianshield.cira.ca
+DOMAIN,private.canadianshield.cira.ca
+DOMAIN,protected.canadianshield.cira.ca
+
+# ========== Surfshark / 其他 ==========
+DOMAIN,dns.surfshark.com
+DOMAIN-SUFFIX,surfsharkdns.com
+
+# ========== Hurricane Electric / 其他知名公共 DNS IP ==========
+IP-CIDR,74.82.42.42/32,no-resolve
+IP-CIDR,185.222.222.222/32,no-resolve
+IP-CIDR,185.184.222.222/32,no-resolve
+IP-CIDR,76.76.19.19/32,no-resolve
+IP-CIDR,76.223.100.101/32,no-resolve

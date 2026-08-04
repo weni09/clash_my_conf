@@ -23,7 +23,7 @@ profile:
 # 锚点
 pr: &pr {type: select, proxies: [👵 大妈节点,👿 鬼节点,🐳 所有-自动,🐂 所有-手动,DIRECT]}
 pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👵 大妈节点,👿 鬼节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
-pr2: &pr2 {type: fallback, proxies:[🦁 香港-自动, 👵 大妈节点, DIRECT]}
+pr2: &pr2 {type: fallback, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动, 👵 大妈节点, DIRECT]}
 # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
@@ -63,6 +63,7 @@ proxy-groups:
   - {name: 👿 鬼节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Ghost"}
   - {name: 👵 大妈节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Dmit"}
 rules:
+  - RULE-SET,aa,🧭 DNS
   - RULE-SET,a1,🤖⚡ AI
   - RULE-SET,a2,🔵🧠 Meta AI
   - RULE-SET,a3,🔍🧩 Perplexity
@@ -105,6 +106,7 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers:
+  aa: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/DNS.list"}
   a1: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/AI.list"}
   a2: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/MetaAi.list"}
   a3: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Perplexity.list"}
