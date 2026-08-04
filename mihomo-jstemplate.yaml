@@ -19,7 +19,7 @@ function main(config) {
     '🏝️ 台湾-自动', '🌿 新加坡-自动', '💄 韩国-自动', '🦅 美国-自动',
     '🐳 所有-自动', '🌀 其他-自动', '🐂 所有-手动',
   ];
-  var pr2Members = ['🦁 香港-自动', '💄 韩国-自动', '🎌 日本-自动', '🏝️ 台湾-自动', '👵 大妈节点', 'DIRECT'];
+  var pr2Members = ['🦁 香港-自动', '💄 韩国-自动', '🎌 日本-自动', '🏝️ 台湾-自动', '👵 大妈节点'];
   var listBase = 'https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list';
 
   // 全局配置
@@ -68,7 +68,7 @@ function main(config) {
     ['👌 虚拟币', 'select', prMembers],
     ['⏱ 检测', 'select', pr1Members],
     ['✈️ 国外', 'select', prMembers],
-    ['🧭 DNS', 'fallback', pr2Members],
+    ['🧭 DNS', 'url-test', pr2Members],
     ['🐼 国内', 'select', pr1Members],
   ];
 
