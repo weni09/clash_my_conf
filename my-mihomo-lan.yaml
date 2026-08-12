@@ -21,9 +21,10 @@ profile:
   store-fake-ip: true
 
 # 锚点
-pr: &pr {type: select, proxies: [🐳 所有-自动,🐂 所有-手动,DIRECT]}
-pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
-pr2: &pr2 {type: url-test, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动]}
+pr: &pr {type: select, proxies: [👵 大妈节点,👿 鬼节点,🐳 所有-自动,🐂 所有-手动,DIRECT]}
+pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👵 大妈节点,👿 鬼节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
+pr2: &pr2 {type: url-test, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动, 👵 大妈节点]}
+
 # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
@@ -60,6 +61,8 @@ proxy-groups:
   - {name: 💄 韩国-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea" }
   - {name: 🦅 美国-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States"}
   - {name: 🌀 其他-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?!)波|柬|尼|也|克|比|尔|立|冰|秘|耳|利|埃|希|孟|芬|愛|澳|英|德|南|意|法|拿|墨|印|越|俄|瑞|智|荷|比|巴|沙|班|泰|德|烏|以|Australia|Konghwaguk"}
+  - {name: 👿 鬼节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Ghost"}
+  - {name: 👵 大妈节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Dmit"}
 rules:
   - RULE-SET,aa,🧭 DNS
   - RULE-SET,a1,🤖⚡ AI
@@ -104,39 +107,40 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers:
-  aa: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/DNS.list"}
-  a1: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/AI.list"}
-  a2: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/MetaAi.list"}
-  a3: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Perplexity.list"}
-  a4: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/GitHub.list"}
-  a5: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/TikTok.list"}
-  a6: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Telegram.list"}
-  a7: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Twitter.list"}
-  a8: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Facebook.list"}
-  a9: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Whatsapp.list"}
-  a10: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Amazon.list"}
-  a11: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Apple.list"}
-  a12: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Microsoft.list"}
-  a13: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Steam.list"}
-  a14: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Epic.list"}
-  a15: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/EA.list"}
-  a16: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Blizzard.list"}
-  a17: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/UBI.list"}
-  a18: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Sony.list"}
-  a19: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Nintendo.list"}
-  a20: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/YouTube1.list"}
-  a21: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/YouTube2.list"}
-  a22: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Disney.list"}
-  a23: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list//Netflix.list"}
-  a24: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/HBO.list"}
-  a25: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Spotify.list"}
-  a26: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/OKX.list"}
-  a27: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Direct.list"}
-  a28: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/xnb.list"}
-  a29: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Check.list"}
-  a30: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Proxy.list"}
-  a31: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Global.list"}
-  a32: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/MyProxy.list"}
-  a33: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/PT.list"}
-  a34: {!!merge <<: *class,url: "https://raw.githubusercontent.com/weni09/clash_my_conf/refs/heads/main/list/Google.list"}
+  aa: {!!merge <<: *class,url: "https://192.168.1.253:25501/clash-conf/list/DNS.list"}
+  a1: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/AI.list"}
+  a2: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/MetaAi.list"}
+  a3: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Perplexity.list"}
+  a4: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/GitHub.list"}
+  a5: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/TikTok.list"}
+  a6: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Telegram.list"}
+  a7: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Twitter.list"}
+  a8: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Facebook.list"}
+  a9: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Whatsapp.list"}
+  a10: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Amazon.list"}
+  a11: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Apple.list"}
+  a12: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Microsoft.list"}
+  a13: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Steam.list"}
+  a14: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Epic.list"}
+  a15: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/EA.list"}
+  a16: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Blizzard.list"}
+  a17: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/UBI.list"}
+  a18: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Sony.list"}
+  a19: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Nintendo.list"}
+  a20: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/YouTube1.list"}
+  a21: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/YouTube2.list"}
+  a22: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Disney.list"}
+  a23: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list//Netflix.list"}
+  a24: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/HBO.list"}
+  a25: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Spotify.list"}
+  a26: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/OKX.list"}
+  a27: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Direct.list"}
+  a28: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/xnb.list"}
+  a29: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Check.list"}
+  a30: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Proxy.list"}
+  a31: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Global.list"}
+  a32: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/MyProxy.list"}
+  a33: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/PT.list"}
+  a34: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Google.list"}
+
 
