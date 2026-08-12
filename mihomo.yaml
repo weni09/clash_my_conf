@@ -24,7 +24,8 @@ profile:
 pr: &pr {type: select, proxies: [🐳 所有-自动,🐂 所有-手动,DIRECT]}
 pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
 pr2: &pr2 {type: url-test, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动]}
-# 策略组
+
+  # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
   - {name: 🔵🧠 Meta AI,!!merge <<: *pr}
