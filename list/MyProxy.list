@@ -53,4 +53,4 @@ DOMAIN,sub.goaiaog.top
 DOMAIN,www.workbuddy.ai
 
 ## cline 
-DOMAIN,api.cline.bot
+DOMAIN-SUFFIX,cline.bot
