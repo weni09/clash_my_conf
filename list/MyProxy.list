@@ -54,3 +54,6 @@ DOMAIN,www.workbuddy.ai
 
 ## cline 
 DOMAIN-SUFFIX,cline.bot
+
+## typesafe
+DOMAIN-SUFFIX,typesafe.ai
