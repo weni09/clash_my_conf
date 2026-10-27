@@ -50,7 +50,7 @@ DOMAIN,wiki.viplee.cc
 DOMAIN,sub.goaiaog.top
 
 ## workbuddy 国际
-# DOMAIN-SUFFIX,workbuddy.ai
+DOMAIN-SUFFIX,workbuddy.ai
 
 ## cline 
 DOMAIN-SUFFIX,cline.bot
