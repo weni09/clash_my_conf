@@ -21,9 +21,9 @@ profile:
   store-fake-ip: true
 
 # 锚点
-pr: &pr {type: select, proxies: [👵 大妈节点,🐳 所有-自动,🐂 所有-手动,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🌀 其他-自动,DIRECT]}
-pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👵 大妈节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
-pr2: &pr2 {type: url-test, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动, 👵 大妈节点]}
+pr: &pr {type: select, proxies: [👵 大妈节点,🏛️ 甲骨文节点,🐳 所有-自动,🐂 所有-手动,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🌀 其他-自动,DIRECT]}
+pr1: &pr1 {type: select, proxies: [DIRECT,REJECT,👵 大妈节点,🏛️ 甲骨文节点,🦁 香港-自动,🎌 日本-自动,🏝️ 台湾-自动,🌿 新加坡-自动,💄 韩国-自动,🦅 美国-自动,🐳 所有-自动,🌀 其他-自动,🐂 所有-手动]}
+pr2: &pr2 {type: url-test, proxies:[🦁 香港-自动, 💄 韩国-自动, 🎌 日本-自动, 🏝️ 台湾-自动, 🏛️ 甲骨文节点, 👵 大妈节点]}
 # 策略组
 proxy-groups:
   - {name: 🤖⚡ AI,!!merge <<: *pr}
@@ -61,6 +61,7 @@ proxy-groups:
   - {name: 🦅 美国-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?i)广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States"}
   - {name: 🌀 其他-自动, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?i)波|柬|尼|也|克|比|尔|立|冰|秘|耳|利|埃|希|孟|芬|愛|澳|英|德|南|意|法|拿|墨|印|越|俄|瑞|智|荷|比|巴|沙|班|泰国|泰國|Thailand|曼谷|Bangkok|芭提雅|清迈|🇹🇭|德|烏|以|Australia|Konghwaguk"}
   - {name: 👿 鬼节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Ghost"}
+  - {name: 🏛️ 甲骨文节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 180, filter: "(?i)甲骨文"}
   - {name: 👵 大妈节点, type: url-test,lazy: false, include-all: true, tolerance: 50, interval: 120, filter: "Dmit"}
 rules:
   - RULE-SET,aa,🧭 DNS
