@@ -112,6 +112,7 @@ rules:
   - RULE-SET,a24,🎬 HBO MAX
   - RULE-SET,a25,🎵 Spotify
   - RULE-SET,a26,👌 虚拟币
+  - RULE-SET,a27,👌 虚拟币
   - RULE-SET,a28,👌 虚拟币
   - RULE-SET,a29,⏱ 检测
   - RULE-SET,a30,✈️ 国外
@@ -147,6 +148,7 @@ rule-providers:
   a23: { {{ $class }}, url: "{{ $base }}/Netflix.list"}
   a24: { {{ $class }}, url: "{{ $base }}/HBO.list"}
   a25: { {{ $class }}, url: "{{ $base }}/Spotify.list"}
+  a27: { {{ $class }}, url: "{{ $base }}/bybit.list"}
   a26: { {{ $class }}, url: "{{ $base }}/OKX.list"}
   a28: { {{ $class }}, url: "{{ $base }}/xnb.list"}
   a29: { {{ $class }}, url: "{{ $base }}/Check.list"}
