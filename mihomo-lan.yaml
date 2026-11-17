@@ -90,7 +90,6 @@ rules:
   - RULE-SET,a24,🎬 HBO MAX
   - RULE-SET,a25,🎵 Spotify
   - RULE-SET,a26,👌 虚拟币
-  - RULE-SET,a27,🐼 国内
   - RULE-SET,a28,👌 虚拟币
   - RULE-SET,a29,⏱ 检测
   - RULE-SET,a30,✈️ 国外
@@ -132,7 +131,6 @@ rule-providers:
   a24: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/HBO.list"}
   a25: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Spotify.list"}
   a26: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/OKX.list"}
-  a27: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Direct.list"}
   a28: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/xnb.list"}
   a29: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Check.list"}
   a30: {!!merge <<: *class,url: "http://192.168.1.253:25501/clash-conf/list/Proxy.list"}
